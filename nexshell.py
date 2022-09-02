@@ -13,7 +13,7 @@ if not platform.system() == "Windows":
                         print("----=================================----")
                         print(" ")
                         print("> NEXShell has failed to load!")
-                        print("> This is probaly due to the user attempting to run it on a non-windows platform.")
+                        print("> This is probably due to the user attempting to run it on a non-windows platform.")
                         print("> ERROR CODE: 1x0")
                         print(" ")
                         os.system("pause")
