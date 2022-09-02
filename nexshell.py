@@ -1,5 +1,25 @@
 import os, socket, sys, platform
 
+
+if not platform.system() == "Windows":
+                        print("----=================================----")
+                        print("     NN     N   EEEEEEEE   X       X")
+                        print("     N N    N   EE           X   X  ")
+                        print("     N  NN  N   EEEEE          X    ")
+                        print("     N    N N   EE           X   X  ")
+                        print("     N     NN   EEEEEEEE   X       X")
+                        print("----=================================----")
+                        print("         NEXShell Critical Error.        ")
+                        print("----=================================----")
+                        print(" ")
+                        print("> NEXShell has failed to load!")
+                        print("> This is probaly due to the user attempting to run it on a non-windows platform.")
+                        print("> ERROR CODE: 1x0")
+                        print(" ")
+                        os.system("pause")
+                        
+                        exit()     
+                        
 try:
     import colorama
 except ImportError:
@@ -28,7 +48,7 @@ os.system('cmd /c "cls"')
 
 maincolor = Fore.CYAN
 
-shellver = "1.2"
+shellver = "1.3-BASE"
 
 print(maincolor)
 
@@ -51,7 +71,17 @@ while True:
     shell = input("╚" + directory + " ~> ")
     
     if shell == "exit":
-                        print("Goodbye.")
+                        print(maincolor)
+                        os.system('cmd /c "cls"')                       
+                        print("----=================================----")
+                        print("     NN     N   EEEEEEEE   X       X")
+                        print("     N N    N   EE           X   X  ")
+                        print("     N  NN  N   EEEEE          X    ")
+                        print("     N    N N   EE           X   X  ")
+                        print("     N     NN   EEEEEEEE   X       X")
+                        print("----=================================----")
+                        print("                Goodbye!")
+                        print("----=================================----")
                         print(Fore.WHITE)
                         sys.exit()
     elif shell == "cls":
@@ -64,16 +94,13 @@ while True:
                         print(" ")
                         print("Please type a command...")
                         print(" ")
-    elif shell == "nfetch":
-                        print(" ")
-                        print("Please type a command...")
-                        print(" ")                    
-    
     elif shell == "dir":
                         print("Dir Is deprecated in NEXShell, please use ls insted") 
                         
     elif shell == "shellver":
-                        print(shellver)
+                        print(" ")
+                        print("Shellver: " + shellver)
+                        print(" ")
                         
     elif shell == "a command":
                         print(" ")
@@ -126,12 +153,21 @@ while True:
                         os.system('cmd /c "cls"')
                         print(Fore.RED + "WARNING: This will not work if you are not running as Administrator.")
                         print(Fore.RED + "The update command also only works on windows 10 17063 and newer.")
-                        print(maincolor + "Please specify the directory of the .nupd update package...")
-                        updatedir = input()
-                        os.system('cmd /c tar -xvf ' + updatedir)
-                        os.system('cmd /c copy /Y "project-glasswater\" "C:\Windows\System32"')
-                        os.system('del /f /q project-glasswater')
-                        os.system('cmd /c "cls"')
+                        print(maincolor + "Please specify the directory of the .nupd update package, Or type cancel to cancel.")
+                        updatedir = input(Fore.GREEN)
+                        if updatedir == "cancel":
+                            os.system('cmd /c "cls"')
+                            print(Fore.RED + "You have chose to cancel the update...")
+                            print(Fore.RED + "However with my limited knowledge of python at this time the only way this can be canceled is if the shell is closed.")
+                            print(Fore.RED + "I am sorry for the inconvenience.")
+                            print(Fore.WHITE)
+                            exit()
+                            system('cmd /c "echo blorg"')
+                        else:
+                            os.system('cmd /c tar -xvf ' + updatedir)
+                            os.system('cmd /c copy /Y "project-glasswater\" "C:\Windows\System32"')
+                            os.system('del /f /q project-glasswater')
+                            os.system('cmd /c "cls"')
                         print(Fore.GREEN + "The update should be done, Please restart NEXShell.")
                         print(Fore.GREEN + "NEXShell will now exit now, Thank you for updating! And goodbye.")
                         print(maincolor)
@@ -160,7 +196,7 @@ while True:
                         print("     N    N N   EE           X   X  ")
                         print("     N     NN   EEEEEEEE   X       X")
                         print("----=================================----")
-                        print("              NEXShell " + shellver)
+                        print("            NEXShell " + shellver)
                         print("----=================================----")
     elif shell == "ncalc":
                         print("--===NCalculator===--")
@@ -173,5 +209,4 @@ while True:
     else:
                         print(Fore.WHITE)
                         os.system('cmd /c' + shell)
-                        print(maincolor)
-                        
+                        print(maincolor)                
