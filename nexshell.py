@@ -28,7 +28,7 @@ os.system('cmd /c "cls"')
 
 maincolor = Fore.CYAN
 
-shellver = "1.1"
+shellver = "1.2"
 
 print(maincolor)
 
@@ -88,12 +88,12 @@ while True:
                         print("ncalc - Simple calculator.")
                         print("help - Print's this help screen.")
                         print("cmdhelp - Print's the cmd help screen.")
-                        print("sdr - Works like cd, switches your working directory")
-                        print("update - Help's update NEXShell")
-                        print("shellver - Print's Current shell's version")
+                        print("sdr - Works like cd, switches your working directory.")
+                        print("update - NEXShell update package installer.")
+                        print("shellver - Print's Current shell's version.")
                         print("github - Brings you to the NEXShell github page.")
                         print("clear - Clears all recent commands on screen.")
-                        print("ls - Lists all content in current directory.")         
+                        print("ls - Lists all content in current directory.")
                         print("exit - Exit NEXShell.")
                         print("----=================================----")
     elif shell == "fetchit":
@@ -123,15 +123,18 @@ while True:
                         print("Cd breaks when running under NEXShell, therefore it is disabled while the shell is running.")
                         print("Please use the sdr command")
     elif shell == "update":
+                        os.system('cmd /c "cls"')
                         print(Fore.RED + "WARNING: This will not work if you are not running as Administrator.")
                         print(Fore.RED + "The update command also only works on windows 10 17063 and newer.")
-                        print(maincolor + "Please specify the directory the update zip file is in...")
+                        print(maincolor + "Please specify the directory of the .nupd update package...")
                         updatedir = input()
-                        os.system('cmd /c tar -xf ' + updatedir)
-                        os.system('cmd /c copy /Y "NEXShell-main\" "C:\Windows\System32"')
+                        os.system('cmd /c tar -xvf ' + updatedir)
+                        os.system('cmd /c copy /Y "project-glasswater\" "C:\Windows\System32"')
+                        os.system('del /f /q project-glasswater')
+                        os.system('cmd /c "cls"')
                         print(Fore.GREEN + "The update should be done, Please restart NEXShell.")
                         print(Fore.GREEN + "NEXShell will now exit now, Thank you for updating! And goodbye.")
-                        print(maincolor + " ")
+                        print(maincolor)
                         os.system("pause")
                         print(Fore.WHITE)
                         exit()                    
