@@ -22,14 +22,14 @@ if not platform.system() == "Windows":
 try:
     import colorama
 except ImportError:
-    print("Installing colorama...")
+    print("Installing Module: colorama...")
     os.system('cmd /c "pip install colorama"')
     import colorama
 
 try:
     import webbrowser
 except ImportError:
-    print("Installing webbrowser...")
+    print("Installing Module: webbrowser...")
     os.system('cmd /c "pip install webbrowser"')
     import webbrowser
        
@@ -37,7 +37,7 @@ try:
     from uptime import uptime
     import time
 except ImportError:
-    print("Installing uptime...")
+    print("Installing Module: uptime...")
     os.system('cmd /c "pip install uptime"')
     from uptime import uptime
     import time
@@ -47,13 +47,16 @@ os.system('cmd /c "cls"')
 
 maincolor = Fore.CYAN
 
-shellver = "1.4"
+shellver = "1.5"
 
 print(maincolor)
 
 username = os.getlogin()
+home_directory = os.path.expanduser("~")
 hostname = socket.gethostname()
 os.system('cmd /c "cls"')
+os.chdir(home_directory)
+
 print("----=================================----")
 print("     NN     N   EEEEEEEE   X       X")
 print("     N N    N   EE           X   X  ")
@@ -116,9 +119,9 @@ while True:
                         print("zetafetch - Works like neofetch, Print's BASIC system information.")
                         print("ncalc - Simple calculator.")
                         print("help - Print's this help screen.")
-                        print("cmdhelp - Print's the cmd help screen.")
+                        print("cmdh - Print's the cmd help screen.")
                         print("sdr - Works like cd, switches your working directory.")
-                        print("update - NEXShell update package installer.")
+                        #print("update - NEXShell update package installer.")
                         print("shellver - Print's Current shell's version.")
                         print("github - Brings you to the NEXShell github page.")
                         print("clear - Clears all recent commands on screen.")
@@ -130,33 +133,28 @@ while True:
                         print("Did you mean \"zetafetch\" ?")
                         print(" ")
     elif "zetafetch" in sharray[0]:
-                        print(Fore.CYAN + "                                ..,   " + Fore.GREEN + username + "<@>" + hostname)
-                        print(Fore.CYAN + "                    ....,,:;+ccllll   " + Fore.WHITE + "---================---")
-                        print(Fore.CYAN + "      ...,,+:;  cllllllllllllllllll " + Fore.GREEN +  "OS: " + Fore.CYAN + platform.system() + " " + platform.release())
-                        print(Fore.CYAN + ",cclllllllllll  lllllllllllllllllll " + Fore.GREEN +  "Kernel: " + Fore.BLUE + platform.version())
-                        print(Fore.CYAN + "llllllllllllll  lllllllllllllllllll " + Fore.GREEN +  "Uptime: " + Fore.RED + time.strftime('%H Hours, ' + Fore.GREEN + '%M Minutes, ' + Fore.BLUE + '%S Seconds', time.gmtime(uptime())))
-                        print(Fore.CYAN + "llllllllllllll  lllllllllllllllllll " + Fore.GREEN +  "Shell: " + Fore.CYAN + "NEXShell " + maincolor + shellver)
-                        print(Fore.CYAN + "llllllllllllll  lllllllllllllllllll ")
-                        print(Fore.CYAN + "llllllllllllll  lllllllllllllllllll ")
-                        print(Fore.CYAN + "llllllllllllll  lllllllllllllllllll ")
-                        print(Fore.CYAN + "                                    ")
-                        print(Fore.CYAN + "llllllllllllll  lllllllllllllllllll ")
-                        print(Fore.CYAN + "llllllllllllll  lllllllllllllllllll ")
-                        print(Fore.CYAN + "llllllllllllll  lllllllllllllllllll ")
-                        print(Fore.CYAN + "llllllllllllll  lllllllllllllllllll ")
-                        print(Fore.CYAN + "llllllllllllll  lllllllllllllllllll ")
-                        print(Fore.CYAN + "`'ccllllllllll  lllllllllllllllllll ")
-                        print(Fore.CYAN + "       `' \*::  :ccllllllllllllllll ")
-                        print(Fore.CYAN + "                       ````''*::cll ")
-                        print(Fore.CYAN + "                                 `` ")
-                        print(Fore.BLUE + "   Z e t a f e t c h  -  2 0 2 2")
+                        print(Fore.CYAN + "                                " + Fore.GREEN + username + "<@>" + hostname)
+                        print(Fore.CYAN + "0000000000000    0000000000000  " + Fore.WHITE + "---================---")
+                        print(Fore.CYAN + "0000000000000    0000000000000  " + Fore.GREEN +  "OS: " + Fore.CYAN + platform.system() + " " + platform.release())
+                        print(Fore.CYAN + "0000000000000    0000000000000  " + Fore.GREEN +  "Kernel: " + Fore.BLUE + platform.version())
+                        print(Fore.CYAN + "0000000000000    0000000000000  " + Fore.GREEN +  "Uptime: " + Fore.RED + time.strftime('%H Hours, ' + Fore.GREEN + '%M Minutes, ' + Fore.BLUE + '%S Seconds', time.gmtime(uptime())))
+                        print(Fore.CYAN + "0000000000000    0000000000000  " + Fore.GREEN +  "Shell: " + Fore.CYAN + "NEXShell " + maincolor + shellver)
+                        print(Fore.CYAN + "0000000000000    0000000000000  ")
+                        print(Fore.CYAN + "                                ")
+                        print(Fore.CYAN + "0000000000000    0000000000000  ")
+                        print(Fore.CYAN + "0000000000000    0000000000000  ")
+                        print(Fore.CYAN + "0000000000000    0000000000000  ")
+                        print(Fore.CYAN + "0000000000000    0000000000000  ")
+                        print(Fore.CYAN + "0000000000000    0000000000000  ")
+                        print(Fore.CYAN + "0000000000000    0000000000000  ")
+                        print(Fore.CYAN + "                                ")
                         print(maincolor)
-    elif "cmdhelp" in sharray[0]:
+    elif "cmdh" in sharray[0]:
                         os.system('cmd /c "help"')
     elif "cd" in sharray[0]:
                         print("Cd breaks when running under NEXShell, therefore it is disabled while the shell is running.")
                         print("Please use the \"sdr\" command")
-    elif "update" in sharray[0]:
+    elif "updatedepreciatedbog39402" in sharray[0]:
                         os.system('cmd /c "cls"')
                         print(maincolor + "----=================================----")
                         print("     NN     N   EEEEEEEE   X       X")
